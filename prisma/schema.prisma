@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Module {
+  READING
+  LISTENING
+  WRITING
+  SPEAKING
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum ExerciseType {
+  MULTIPLE_CHOICE
+  TRUE_FALSE_NG
+  FILL_BLANK
+  MATCHING
+  OPEN_WRITING
+  OPEN_SPEAKING
+}
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  email     String   @unique
+  name      String?
+  targetBand Float?
+  examDate  DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  attempts  Attempt[]
+  progress  UserProgress[]
+}
+
+model Exercise {
+  id            String       @id @default(cuid())
+  module        Module
+  type          ExerciseType
+  difficulty    Difficulty
+  title         String
+  content       Json
+  correctAnswer Json
+  explanation   String?
+  timeLimit     Int?
+  createdAt     DateTime     @default(now())
+
+  attempts      Attempt[]
+}
+
+model Attempt {
+  id          String   @id @default(cuid())
+  userId      String
+  exerciseId  String
+  userAnswer  Json
+  score       Float?
+  aiFeedback  Json?
+  completedAt DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exercise    Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+}
+
+model UserProgress {
+  id             String   @id @default(cuid())
+  userId         String
+  module         Module
+  totalAttempts  Int      @default(0)
+  avgScore       Float?
+  lastActivityAt DateTime @default(now())
+
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, module])
+}
