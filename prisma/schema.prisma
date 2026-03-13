@@ -22,12 +22,18 @@ enum Difficulty {
 enum ExerciseType {
   MULTIPLE_CHOICE
   TRUE_FALSE_NG
-  FILL_BLANK
-  MATCHING
+  YES_NO_NG
+  MATCHING_INFORMATION
+  MATCHING_HEADINGS
+  MATCHING_FEATURES
+  MATCHING_SENTENCE_ENDINGS
+  SENTENCE_COMPLETION
+  NOTE_TABLE_FLOWCHART_SUMMARY
+  DIAGRAM_LABEL
+  SHORT_ANSWER
   OPEN_WRITING
   OPEN_SPEAKING
 }
-
 model User {
   id        String   @id @default(cuid())
   clerkId   String   @unique
@@ -42,19 +48,33 @@ model User {
   progress  UserProgress[]
 }
 
-model Exercise {
-  id            String       @id @default(cuid())
-  module        Module
-  type          ExerciseType
-  difficulty    Difficulty
-  title         String
-  content       Json
-  correctAnswer Json
-  explanation   String?
-  timeLimit     Int?
-  createdAt     DateTime     @default(now())
+model ReadingPassage {
+  id         String     @id @default(cuid())
+  title      String
+  text       String
+  source     String?
+  difficulty Difficulty
+  createdAt  DateTime   @default(now())
 
-  attempts      Attempt[]
+  questions  Exercise[]
+}
+
+model Exercise {
+  id           String          @id @default(cuid())
+  module       Module
+  type         ExerciseType
+  difficulty   Difficulty
+  title        String
+  instructions String
+  content      Json
+  solution     Json
+  explanation  String?
+  order        Int?
+  createdAt    DateTime        @default(now())
+
+  passageId    String?
+  passage      ReadingPassage? @relation(fields: [passageId], references: [id], onDelete: SetNull)
+  attempts     Attempt[]
 }
 
 model Attempt {
