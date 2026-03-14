@@ -1,14 +1,25 @@
-import { Sidebar } from "@/components/shared/sidebar";
+import { currentUser } from "@clerk/nextjs/server";
+import { Sidebar } from "@/components/shared/Sidebar";
+import { SidebarProvider } from "@/lib/sidebar-context";
+import { DashboardMain } from "@/components/shared/DashboardMain";
+import { getOrCreateUser } from "@/lib/user";
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  await getOrCreateUser();
+  const user = await currentUser();
+  const displayName =
+    user?.firstName ?? user?.emailAddresses[0]?.emailAddress ?? "Account";
+
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
-      <main className="ml-56 flex-1 px-8 py-8">{children}</main>
-    </div>
+    <SidebarProvider>
+      <div className="flex min-h-screen bg-gray-50">
+        <Sidebar displayName={displayName} />
+        <DashboardMain>{children}</DashboardMain>
+      </div>
+    </SidebarProvider>
   );
 }
