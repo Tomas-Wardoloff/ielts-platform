@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Show } from "@clerk/nextjs";
+import { Button } from "@/components/ui/Button";
+import { MoveRight } from "lucide-react";
 
 export default function FeaturesSection() {
   return (
@@ -19,20 +21,23 @@ export default function FeaturesSection() {
         </p>
 
         <Show when="signed-out">
-          <Link
+          <Button
             href="/sign-up"
-            className="bg-brand hover:bg-brand-dark shadow-brand/20 inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:scale-105"
+            size="lg"
+            rightIcon={<MoveRight size={14} />}
+            className="shadow-brand/20 shadow-lg hover:scale-105"
           >
-            Start Practicing Free &rarr;
-          </Link>
+            Start Practicing Free
+          </Button>
         </Show>
         <Show when="signed-in">
-          <Link
+          <Button
             href="/dashboard"
-            className="bg-brand hover:bg-brand-dark shadow-brand/20 inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:scale-105"
+            size="lg"
+            className="shadow-brand/20 shadow-lg hover:scale-105"
           >
-            Go to Dashboard &rarr;
-          </Link>
+            Go to Dashboard
+          </Button>
         </Show>
         <p className="mt-6 text-xs font-semibold tracking-wider text-gray-400 uppercase">
           No credit card required • Free forever on basic plan
