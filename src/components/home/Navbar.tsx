@@ -52,13 +52,13 @@ export default function Navbar() {
                 href="/sign-in"
                 className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
               >
-                Login
+                Sign In
               </Link>
               <Link
                 href="/sign-up"
                 className="bg-brand hover:bg-brand-dark rounded-md px-5 py-2 text-sm font-medium text-white transition-colors"
               >
-                Register
+                Get started free
               </Link>
             </Show>
             <Show when="signed-in">
