@@ -16,9 +16,9 @@ This file provides full context for AI models working on this codebase. Read it 
 
 | Layer     | Technology                  | Notes                                                    |
 | --------- | --------------------------- | -------------------------------------------------------- |
-| Framework | Next.js 14 (App Router)     | Single repo, frontend + backend                          |
-| Language  | TypeScript                  | Strict mode enabled                                      |
-| Styling   | Tailwind CSS                | Utility-first, no CSS modules                            |
+| Framework | Next.js 16 (App Router)     | Single repo, frontend + backend                          |
+| Language  | TypeScript                  | Strict mode enabled, React 19                            |
+| Styling   | Tailwind CSS v4             | Utility-first, configured via @theme in globals.css      |
 | ORM       | Prisma 7                    | Config via `prisma.config.ts`, not `schema.prisma`       |
 | Database  | PostgreSQL                  | Hosted on Railway                                        |
 | Auth      | Clerk                       | Latest API — use `<Show>` not `<SignedIn>`/`<SignedOut>` |
@@ -87,7 +87,7 @@ import { SignedIn, SignedOut } from "@clerk/nextjs"; // deprecated
 import { authMiddleware } from "@clerk/nextjs"; // deprecated
 ```
 
-The middleware file is `src/middleware.ts` (not `proxy.ts`).
+The middleware file is currently `src/proxy.ts` (not `middleware.ts`).
 
 ### Next.js App Router — patterns to follow
 
@@ -237,27 +237,20 @@ Clean and professional, inspired by Linear, Notion, and the official IELTS visua
 
 ### Typography
 
-- Font: **Inter** (Google Fonts)
+- Font: **DM Sans** for sans-serif (Google Fonts), **DM Serif Display** for serif
 - Headings: `font-weight: 700`, tight letter-spacing (`-0.5px` to `-1.5px`)
 - Body: `font-weight: 400`, `line-height: 1.65`
 - Labels/badges: `font-weight: 500 or 600`, uppercase with letter-spacing for section labels
 
-### Tailwind config additions (tailwind.config.ts)
+### Tailwind v4 config (src/app/globals.css)
 
-```typescript
-theme: {
-  extend: {
-    colors: {
-      brand: {
-        DEFAULT: "#DA291C",
-        dark: "#b91c1c",
-        light: "#fef2f2",
-      },
-    },
-    fontFamily: {
-      sans: ["Inter", "system-ui", "sans-serif"],
-    },
-  },
+```css
+@theme {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --color-brand: #da291c;
+  --color-brand-dark: #b91c1c;
+  --color-brand-light: #fef2f2;
 }
 ```
 
@@ -303,10 +296,11 @@ Full timed exam simulation replicating real IELTS conditions. Unlocks after the 
 
 ### Phase 1 — Foundations (Weeks 1–2) ✅ In progress
 
-- [x] Next.js 14 + TypeScript + Tailwind setup
+- [x] Next.js 16 + TypeScript + Tailwind v4 setup
 - [x] Clerk auth integrated
 - [x] Prisma 7 schema defined
 - [x] PostgreSQL on Railway connected
+- [x] Landing page UI components (Hero, Navbar, Features, Footer)
 - [ ] First Vercel deploy
 - [ ] Basic dashboard UI
 
