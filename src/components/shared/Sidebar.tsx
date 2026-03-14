@@ -75,15 +75,15 @@ function NavItem({ href, icon, label, collapsed }: NavItemProps) {
     <Link
       href={href}
       title={collapsed ? label : undefined}
-      className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors ${collapsed ? "justify-center" : ""
-        } ${isActive
+      className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors ${
+        collapsed ? "justify-center" : ""
+      } ${
+        isActive
           ? "bg-brand-light text-brand font-medium"
           : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-        }`}
+      }`}
     >
-      <span
-        className={`shrink-0 ${isActive ? "text-brand" : "text-gray-400"}`}
-      >
+      <span className={`shrink-0 ${isActive ? "text-brand" : "text-gray-400"}`}>
         {icon}
       </span>
       {!collapsed && <span>{label}</span>}
@@ -111,11 +111,12 @@ export function Sidebar({ displayName }: { displayName: string }) {
 
   return (
     <aside
-      className={`fixed top-0 left-0 flex h-screen flex-col border-r border-gray-200 bg-white transition-all duration-300 ${collapsed ? "w-14" : "w-56"
-        }`}
+      className={`fixed top-0 left-0 flex h-screen flex-col border-r border-gray-200 bg-white transition-all duration-300 ${
+        collapsed ? "w-14" : "w-56"
+      }`}
     >
       {/* Header */}
-      <div className="flex h-[57px] shrink-0 items-center border-b border-gray-200 px-3">
+      <div className="flex h-14.25 shrink-0 items-center border-b border-gray-200 px-3">
         {collapsed ? (
           <button
             onClick={toggle}
