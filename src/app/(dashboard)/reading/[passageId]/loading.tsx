@@ -1,7 +1,7 @@
 export default function Loading() {
   return (
     <div className="pointer-events-none flex h-[calc(100vh-0px)] flex-col opacity-50 blur-sm">
-      <div className="flex h-[57px] shrink-0 items-center justify-between border-b border-gray-200 bg-white px-5">
+      <div className="flex h-14.25 shrink-0 items-center justify-between border-b border-gray-200 bg-white px-5">
         <div className="h-4 w-32 animate-pulse rounded bg-gray-200"></div>
         <div className="h-9 w-32 animate-pulse rounded-lg bg-gray-200"></div>
       </div>
