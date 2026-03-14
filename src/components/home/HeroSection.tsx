@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { Show } from "@clerk/nextjs";
 import Badge from "./Badge";
 import HeroWidget from "./HeroWidget";
+import { Button } from "@/components/ui/Button";
+import { MoveRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -22,26 +23,22 @@ export default function HeroSection() {
         </p>
         <div className="flex items-center gap-4 pt-2">
           <Show when="signed-out">
-            <Link
-              href="/sign-in"
-              className="rounded-md border border-gray-300 bg-white px-6 py-3.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50"
-            >
-              Login
-            </Link>
-            <Link
-              href="/sign-up"
-              className="bg-brand hover:bg-brand-dark flex items-center gap-2 rounded-md px-6 py-3.5 text-sm font-semibold text-white transition-colors"
-            >
-              Register <span aria-hidden="true">&rarr;</span>
-            </Link>
+            <Button href="/sign-up" rightIcon={<MoveRight size={14} />}>
+              Register
+            </Button>
+            <Button href="/sign-in" variant="outline">
+              Sign In
+            </Button>
           </Show>
           <Show when="signed-in">
-            <Link
+            <Button
               href="/dashboard"
-              className="bg-brand hover:bg-brand-dark shadow-brand/20 inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:scale-105"
+              size="lg"
+              rightIcon={<MoveRight size={14} />}
+              className="shadow-brand/20 shadow-lg hover:scale-105"
             >
-              Go to Dashboard <span aria-hidden="true">&rarr;</span>
-            </Link>
+              Go to Dashboard
+            </Button>
           </Show>
         </div>
 
