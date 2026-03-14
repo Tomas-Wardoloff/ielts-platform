@@ -1,7 +1,8 @@
 import { ElementType } from "react";
+import { Button } from "@/components/ui/Button";
 
-interface FeatureCardProps {
-  feature: {
+interface ModuleCardProps {
+  module: {
     id: string;
     title: string;
     description: string;
@@ -11,12 +12,12 @@ interface FeatureCardProps {
   onClick: () => void;
 }
 
-export default function FeatureCard({
-  feature,
+export default function ModuleCard({
+  module,
   isActive,
   onClick,
-}: FeatureCardProps) {
-  const Icon = feature.icon;
+}: ModuleCardProps) {
+  const Icon = module.icon;
 
   return (
     <div
@@ -38,7 +39,7 @@ export default function FeatureCard({
           >
             <Icon size={20} />
           </div>
-          <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
+          <h3 className="text-lg font-semibold text-white">{module.title}</h3>
         </div>
         <div className="text-gray-400 transition-colors group-hover:text-gray-300">
           <svg
@@ -70,11 +71,11 @@ export default function FeatureCard({
         <div className="overflow-hidden">
           <div className="flex flex-col items-start pr-4 pl-14 text-left">
             <p className="text-[16px] leading-relaxed text-[rgba(255,255,255,0.55)] italic">
-              {feature.description}
+              {module.description}
             </p>
-            <button className="bg-brand hover:bg-brand-dark mt-5 rounded-md px-5 py-2.5 text-sm font-semibold text-white transition-all hover:scale-[1.02]">
-              Start practicing {feature.title}
-            </button>
+            <Button size="sm" className="mt-5">
+              Start practicing {module.title}
+            </Button>
           </div>
         </div>
       </div>

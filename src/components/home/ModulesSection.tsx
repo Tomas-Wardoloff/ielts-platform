@@ -1,4 +1,4 @@
-import FeaturesAccordion from "./FeaturesAccordion";
+import ModulesAccordion from "./ModulesAccordion";
 
 export default function ModulesSection() {
   return (
@@ -15,7 +15,7 @@ export default function ModulesSection() {
           advanced AI feedback and authentic practice exams.
         </p>
 
-        <FeaturesAccordion />
+        <ModulesAccordion />
       </div>
     </section>
   );

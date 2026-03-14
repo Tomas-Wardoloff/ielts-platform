@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { Headphones, BookOpen, PenTool, Mic } from "lucide-react";
-import FeatureCard from "./FeatureCard";
+import ModuleCard from "./ModuleCard";
 
-export default function FeaturesAccordion() {
+export default function ModulesAccordion() {
   const [activeTab, setActiveTab] = useState("listening");
 
-  const features = [
+  const modules = [
     {
       id: "listening",
       title: "Listening",
@@ -40,12 +40,12 @@ export default function FeaturesAccordion() {
 
   return (
     <div className="mx-auto mt-12 max-w-2xl space-y-4">
-      {features.map((feature) => (
-        <FeatureCard
-          key={feature.id}
-          feature={feature}
-          isActive={activeTab === feature.id}
-          onClick={() => setActiveTab(feature.id)}
+      {modules.map((module) => (
+        <ModuleCard
+          key={module.id}
+          module={module}
+          isActive={activeTab === module.id}
+          onClick={() => setActiveTab(module.id)}
         />
       ))}
     </div>
