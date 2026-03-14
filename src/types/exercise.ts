@@ -7,6 +7,23 @@ export type SentenceEnding = { id: string; text: string };
 export type BlankSegment = { type: "blank"; id: string };
 export type TextSegment = { type: "text"; value: string };
 export type ContentSegment = TextSegment | BlankSegment;
+export type ReadingPassageWithQuestions = {
+  id: string;
+  title: string;
+  text: string;
+  source: string | null;
+  difficulty: "BEGINNER" | "INTERMEDIATE" | "ADVANCED";
+  questions: {
+    id: string;
+    type: string;
+    title: string;
+    instructions: string;
+    content: unknown;
+    solution: unknown;
+    explanation: string | null;
+    order: number | null;
+  }[];
+};
 
 /**
  * 1. Multiple Choice
