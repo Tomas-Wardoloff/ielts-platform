@@ -5,6 +5,7 @@
 @theme {
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-serif: "DM Serif Display", Georgia, serif;
+  --font-inter: "Inter", system-ui, sans-serif;
   --color-brand: #da291c;
   --color-brand-dark: #b91c1c;
   --color-brand-light: #fef2f2;
