@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Show } from "@clerk/nextjs";
 
-export default function CTASection() {
+export default function FeaturesSection() {
   return (
     <section className="bg-white px-6 py-24 text-center">
       <div className="mx-auto max-w-3xl">

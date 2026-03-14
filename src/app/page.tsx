@@ -3,7 +3,7 @@ import Footer from "@/components/home/FooterSection";
 import HeroSection from "@/components/home/HeroSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import ModulesSection from "@/components/home/ModulesSection";
-import CTASection from "@/components/home/CTASection";
+import FeaturesSection from "@/components/home/FeaturesSection";
 
 export default function HomePage() {
   return (
@@ -12,7 +12,7 @@ export default function HomePage() {
       <HeroSection />
       <ProcessSection />
       <ModulesSection />
-      <CTASection />
+      <FeaturesSection />
       <Footer />
     </div>
   );
