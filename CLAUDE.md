@@ -205,16 +205,11 @@ NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
 NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
 
+# Enviroment
+NODE_ENV=
+
 # Database
 DATABASE_URL=postgresql://...
-
-# Anthropic (future — Writing/Speaking AI feedback)
-ANTHROPIC_API_KEY=
-
-# Stripe (future — freemium payments)
-STRIPE_SECRET_KEY=
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-STRIPE_WEBHOOK_SECRET=
 ```
 
 ---
@@ -301,8 +296,8 @@ Full timed exam simulation replicating real IELTS conditions. Unlocks after the 
 - [x] Prisma 7 schema defined
 - [x] PostgreSQL on Railway connected
 - [x] Landing page UI components (Hero, Navbar, Features, Footer)
-- [ ] First Vercel deploy
-- [ ] Basic dashboard UI
+- [x] First Vercel deploy
+- [x] Basic dashboard UI
 
 ### Phase 2 — Reading + Listening (Weeks 3–5)
 
