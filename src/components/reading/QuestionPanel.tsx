@@ -44,12 +44,13 @@ export function QuestionPanel({
               <button
                 key={q.id}
                 onClick={() => onNavigate(i)}
-                className={`cursor-pointer h-2 w-2 rounded-full transition-colors ${i === currentIndex
-                  ? "bg-brand"
-                  : isAnswered(q.id)
-                    ? "bg-red-200"
-                    : "bg-gray-200 hover:bg-gray-300"
-                  }`}
+                className={`h-2 w-2 cursor-pointer rounded-full transition-colors ${
+                  i === currentIndex
+                    ? "bg-brand"
+                    : isAnswered(q.id)
+                      ? "bg-red-200"
+                      : "bg-gray-200 hover:bg-gray-300"
+                }`}
               />
             ))}
           </div>
