@@ -30,36 +30,27 @@ export function ConfirmModal({
       onClick={onCancel}
     >
       <div
-        className="w-full max-w-sm rounded-xl bg-white shadow-lg overflow-hidden"
+        className="w-full max-w-sm overflow-hidden rounded-xl bg-white shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="px-6 pt-5 pb-4">
-          <h3 className="text-sm font-semibold text-gray-900 text-center">
+          <h3 className="text-center text-sm font-semibold text-gray-900">
             {title}
           </h3>
         </div>
 
-        <div className="flex items-center gap-4 px-6 py-4 border-y border-gray-100">
+        <div className="flex items-center gap-4 border-y border-gray-100 px-6 py-4">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-50">
             <AlertTriangle size={18} className="text-amber-500" />
           </div>
-          <p className="text-sm text-gray-500 leading-relaxed">
-            {description}
-          </p>
+          <p className="text-sm leading-relaxed text-gray-500">{description}</p>
         </div>
 
-        <div className="flex px-3 py-2 gap-2">
-          <Button
-            onClick={onCancel}
-            variant="outline"
-            className="flex-1"
-          >
+        <div className="flex gap-2 px-3 py-2">
+          <Button onClick={onCancel} variant="outline" className="flex-1">
             {cancelLabel}
           </Button>
-          <Button
-            onClick={onConfirm}
-            className="flex-1"
-          >
+          <Button onClick={onConfirm} className="flex-1">
             {confirmLabel}
           </Button>
         </div>
