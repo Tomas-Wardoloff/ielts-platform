@@ -5,7 +5,6 @@ export default function ReadingPage() {
   const passages = READING_FIXTURES.map((passage, index) => ({
     id: passage.id,
     title: passage.title,
-    source: passage.source,
     questionCount: passage.questions.length,
     // Simulate some progress for development
     attempted: index === 0,
