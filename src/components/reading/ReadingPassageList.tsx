@@ -6,11 +6,11 @@ import { BookOpen } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ModuleInfo } from "@/components/shared/ModuleInfo";
 import { ModuleHeader } from "@/components/shared/ModuleHeader";
+import { scoreToBand } from "@/lib/utils";
 
 type PassageProgress = {
   id: string;
   title: string;
-  source: string | null;
   questionCount: number;
   attempted: boolean;
   lastScore: number | null;
@@ -81,9 +81,9 @@ export function ReadingPassageList({
         </div>
       </div>
 
-      {/* Table Container with Horizontal Scroll */}
+      {/* Table */}
       <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
-        <table className="w-full min-w-200 table-fixed text-sm lg:min-w-full">
+        <table className="w-full min-w-200 text-sm lg:min-w-full">
           <thead>
             <tr className="border-b border-gray-100 bg-gray-50/50 text-xs tracking-wide text-gray-400 uppercase">
               <th className="px-5 py-3 text-left font-medium">Passage</th>
@@ -128,15 +128,10 @@ export function ReadingPassageList({
                     <td className="truncate px-5 py-4">
                       <Link
                         href={`/reading/${passage.id}`}
-                        className="group-hover:text-brand font-medium text-gray-900 transition-colors hover:underline"
+                        className="group-hover:text-brand font-medium text-gray-900 transition-colors"
                       >
                         {passage.title}
                       </Link>
-                      {passage.source && (
-                        <p className="mt-0.5 truncate text-xs text-gray-400">
-                          {passage.source}
-                        </p>
-                      )}
                     </td>
                     <td className="px-3 py-4 text-right font-medium whitespace-nowrap text-gray-500">
                       {passage.questionCount}
@@ -154,7 +149,7 @@ export function ReadingPassageList({
                       className={`px-3 py-4 text-right font-bold whitespace-nowrap ${scoreColor}`}
                     >
                       {passage.lastScore !== null
-                        ? `Band ${(passage.lastScore * 9).toFixed(1)}`
+                        ? `Band ${scoreToBand(passage.lastScore)}`
                         : "—"}
                     </td>
                     <td className="px-5 py-4 text-right whitespace-nowrap text-gray-400">

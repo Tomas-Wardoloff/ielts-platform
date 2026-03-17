@@ -1,16 +1,22 @@
-import { READING_FIXTURES } from "@/lib/fixtures/reading";
+import { db } from "@/lib/db";
 import { ReadingPassageList } from "@/components/reading/ReadingPassageList";
 
-export default function ReadingPage() {
-  const passages = READING_FIXTURES.map((passage, index) => ({
+export default async function ReadingPage() {
+  const passages = await db.readingPassage.findMany({
+    include: {
+      _count: { select: { questions: true } },
+    },
+    orderBy: { createdAt: "desc" },
+  });
+
+  const passageList = passages.map((passage) => ({
     id: passage.id,
     title: passage.title,
-    questionCount: passage.questions.length,
-    // Simulate some progress for development
-    attempted: index === 0,
-    lastScore: index === 0 ? 0.78 : null,
-    lastAttemptAt: index === 0 ? new Date("2025-03-10") : null,
+    questionCount: passage._count.questions,
+    attempted: false,
+    lastScore: null,
+    lastAttemptAt: null,
   }));
 
-  return <ReadingPassageList passages={passages} />;
+  return <ReadingPassageList passages={passageList} />;
 }
