@@ -13,12 +13,6 @@ enum Module {
   SPEAKING
 }
 
-enum Difficulty {
-  BEGINNER
-  INTERMEDIATE
-  ADVANCED
-}
-
 enum ExerciseType {
   MULTIPLE_CHOICE
   TRUE_FALSE_NG
@@ -53,7 +47,6 @@ model ReadingPassage {
   title      String
   text       String
   source     String?
-  difficulty Difficulty
   createdAt  DateTime   @default(now())
 
   questions  Exercise[]
@@ -63,7 +56,6 @@ model Exercise {
   id           String          @id @default(cuid())
   module       Module
   type         ExerciseType
-  difficulty   Difficulty
   title        String
   instructions String
   content      Json
