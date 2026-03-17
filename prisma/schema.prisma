@@ -46,7 +46,6 @@ model ReadingPassage {
   id         String     @id @default(cuid())
   title      String
   text       String
-  source     String?
   createdAt  DateTime   @default(now())
 
   questions  Exercise[]
