@@ -6,7 +6,6 @@ export default function ReadingPage() {
     id: passage.id,
     title: passage.title,
     source: passage.source,
-    difficulty: passage.difficulty,
     questionCount: passage.questions.length,
     // Simulate some progress for development
     attempted: index === 0,

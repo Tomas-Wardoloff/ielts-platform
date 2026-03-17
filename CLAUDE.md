@@ -138,7 +138,6 @@ ielts-platform/
 
 ```prisma
 enum Module       { READING LISTENING WRITING SPEAKING }
-enum Difficulty   { BEGINNER INTERMEDIATE ADVANCED }
 enum ExerciseType { MULTIPLE_CHOICE TRUE_FALSE_NG FILL_BLANK MATCHING OPEN_WRITING OPEN_SPEAKING }
 
 model User {
@@ -158,7 +157,6 @@ model Exercise {
   id            String       @id @default(cuid())
   module        Module
   type          ExerciseType
-  difficulty    Difficulty
   title         String
   content       Json         // Structure varies by ExerciseType
   correctAnswer Json         // String, array, or object depending on type
