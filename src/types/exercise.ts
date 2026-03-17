@@ -12,7 +12,6 @@ export type ReadingPassageWithQuestions = {
   title: string;
   text: string;
   source: string | null;
-  difficulty: "BEGINNER" | "INTERMEDIATE" | "ADVANCED";
   questions: {
     id: string;
     type: string;
