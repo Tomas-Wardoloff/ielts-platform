@@ -2,7 +2,5 @@ import { auth } from "@clerk/nextjs/server";
 
 export async function isAdmin(): Promise<boolean> {
   const { sessionClaims } = await auth();
-  return (
-    (sessionClaims?.metadata as { role?: string })?.role === "admin"
-  );
+  return (sessionClaims?.metadata as { role?: string })?.role === "admin";
 }
