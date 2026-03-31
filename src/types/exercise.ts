@@ -11,15 +11,12 @@ export type ReadingPassageWithQuestions = {
   id: string;
   title: string;
   text: string;
-  source: string | null;
   questions: {
     id: string;
     type: string;
-    title: string;
     instructions: string;
     content: unknown;
     solution: unknown;
-    explanation: string | null;
     order: number | null;
   }[];
 };
