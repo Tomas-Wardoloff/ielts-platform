@@ -21,8 +21,13 @@ export default async function DashboardPage() {
     include: {
       exercise: {
         select: {
-          title: true,
           module: true,
+          type: true,
+          passage: {
+            select: {
+              title: true,
+            },
+          },
         },
       },
     },
@@ -35,7 +40,9 @@ export default async function DashboardPage() {
   const recentAttempts = rawAttempts.map((attempt) => ({
     id: attempt.id,
     module: attempt.exercise.module,
-    exerciseTitle: attempt.exercise.title,
+    exerciseTitle:
+      attempt.exercise.passage?.title ||
+      attempt.exercise.type.replace(/_/g, " "),
     score: attempt.score,
     completedAt: attempt.completedAt,
   }));
