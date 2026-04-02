@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
+
 import type {
   ReadingPassageWithQuestions,
   UserAnswer,
@@ -49,17 +51,14 @@ export function TrueFalseNG({ question, userAnswer, onAnswer }: Props) {
             {options.map((opt) => {
               const selected = userAnswer[stmt.id] === opt.value;
               return (
-                <button
+                <Button
                   key={opt.value}
                   onClick={() => handleSelect(stmt.id, opt.value)}
-                  className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-colors ${
-                    selected
-                      ? "bg-brand-light border-brand text-brand"
-                      : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
-                  }`}
+                  variant={selected ? "primary" : "outline"}
+                  size="sm"
                 >
                   {opt.label}
-                </button>
+                </Button>
               );
             })}
           </div>
