@@ -95,7 +95,7 @@ export function ReadingPassageList({
                 Last score
               </th>
               <th className="w-36 px-5 py-3 text-right font-medium">
-                Last Practice
+                Last attempt
               </th>
             </tr>
           </thead>
@@ -139,10 +139,10 @@ export function ReadingPassageList({
                     <td className="px-3 py-4 text-right whitespace-nowrap">
                       {passage.attempted ? (
                         <span className="font-medium text-green-600">
-                          Completed
+                          Attempted
                         </span>
                       ) : (
-                        <span className="text-gray-400">Available</span>
+                        <span className="text-gray-400">Not attempted</span>
                       )}
                     </td>
                     <td
@@ -155,8 +155,8 @@ export function ReadingPassageList({
                     <td className="px-5 py-4 text-right whitespace-nowrap text-gray-400">
                       {passage.lastAttemptAt
                         ? formatDistanceToNow(new Date(passage.lastAttemptAt), {
-                            addSuffix: true,
-                          })
+                          addSuffix: true,
+                        })
                         : "—"}
                     </td>
                   </tr>
