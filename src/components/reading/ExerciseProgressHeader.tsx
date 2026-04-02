@@ -5,7 +5,6 @@ interface Props {
   currentIndex: number;
   totalQuestions: number;
   isAnswered: (id: string) => boolean;
-  onNavigate: (index: number) => void;
 }
 
 export function ExerciseProgressHeader({
@@ -13,7 +12,6 @@ export function ExerciseProgressHeader({
   currentIndex,
   totalQuestions,
   isAnswered,
-  onNavigate,
 }: Props) {
   return (
     <div className="shrink-0 border-b border-gray-200 bg-white px-5 pt-4 pb-3">
@@ -23,15 +21,14 @@ export function ExerciseProgressHeader({
         </span>
         <div className="flex gap-1.5">
           {questions.map((q, i) => (
-            <button
+            <div
               key={q.id}
-              onClick={() => onNavigate(i)}
-              className={`h-2 w-2 cursor-pointer rounded-full transition-colors ${
+              className={`h-2 w-2 rounded-full transition-colors ${
                 i === currentIndex
                   ? "bg-brand"
                   : isAnswered(q.id)
                     ? "bg-red-200"
-                    : "bg-gray-200 hover:bg-gray-300"
+                    : "bg-gray-200"
               }`}
             />
           ))}
