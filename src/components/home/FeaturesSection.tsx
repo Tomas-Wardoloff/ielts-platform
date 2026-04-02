@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Show } from "@clerk/nextjs";
 import { Button } from "@/components/ui/Button";
 import { MoveRight } from "lucide-react";
