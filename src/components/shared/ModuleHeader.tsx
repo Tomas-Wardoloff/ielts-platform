@@ -15,7 +15,7 @@ export function ModuleHeader({ title, description, icon }: Props) {
           {title}
         </h1>
       </div>
-      <p className="max-w-xl text-sm text-gray-500">{description}</p>
+      <p className="text-sm text-gray-500">{description}</p>
     </div>
   );
 }
