@@ -9,7 +9,7 @@ A full-stack web application for self-directed IELTS preparation. Practice all f
 - **Styling** — Tailwind CSS v4
 - **Auth** — Clerk
 - **ORM** — Prisma 7
-- **Database** — PostgreSQL (Railway)
+- **Database** — PostgreSQL 
 - **AI** — Anthropic API (Claude)
 - **Runtime** — Bun
 - **Deploy** — Vercel
@@ -33,7 +33,7 @@ cd ielts-platform
 bun install
 
 # 3 — Set up environment variables
-cp .env.example .env.local
+cp .env.example .env
 
 # 4 — Start the local database
 docker compose up -d
@@ -49,7 +49,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the app.
 
 ### Environment Variables
 
-Copy `.env.example` to `.env.local` and fill in the required values:
+Copy `.env.example` to `.env` and fill in the required values:
 
 ```env
 # Clerk — get these from dashboard.clerk.com
@@ -87,11 +87,16 @@ docker compose down -v
 ```
 src/
 ├── app/
-│   ├── (auth)/        # Sign in and sign up pages
-│   ├── (dashboard)/   # Protected app pages
-│   └── api/           # API routes
+│   ├── (auth)/         
+│   ├── (dashboard)/    
+│   └── api/            
 ├── components/
-│   ├── ui/            # Reusable primitives
-│   └── shared/        # Cross-feature components
-└── lib/               # Utilities and db client
+│   ├── home/           
+|   |   └── animations/ 
+│   ├── dashboard/       
+│   ├── reading/         
+│   ├── ui/             
+│   └── shared/         
+└── lib/                
+└── types/              
 ```
