@@ -4,14 +4,14 @@ import { ModuleCard } from "./ModuleCard";
 export const modulesData = [
   {
     name: "Reading",
-    description: "Academic passages with the 13 official question types.",
+    description: "Academic passages with the 11 official question types.",
     href: "/reading",
     status: "available" as const,
     icon: <BookOpen size={22} className="text-brand" />,
   },
   {
     name: "Listening",
-    description: "Audio exercises with transcription and error analysis.",
+    description: "Audio exercises with transcriptions.",
     href: "/listening",
     status: "available" as const,
     icon: <Headphones size={22} className="text-brand" />,
