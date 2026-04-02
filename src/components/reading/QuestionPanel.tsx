@@ -38,7 +38,6 @@ export function QuestionPanel({
         currentIndex={currentIndex}
         totalQuestions={totalQuestions}
         isAnswered={isAnswered}
-        onNavigate={onNavigate}
       />
 
       {/* Question body — scrollable */}
