@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 
 type PreviousAttempt = {
@@ -36,17 +35,9 @@ export function RecentAttemptsTable({ attempts }: Props) {
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
-        <h2 className="font-serif text-2xl text-gray-900 md:text-3xl">
-          Recent Attempts
-        </h2>
-        <Link
-          href="/reading"
-          className="text-brand text-sm font-medium hover:underline"
-        >
-          View all history &rarr;
-        </Link>
-      </div>
+      <h2 className="mb-6 font-serif text-2xl text-gray-900 md:text-3xl">
+        Recent Attempts
+      </h2>
 
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
         <table className="w-full text-sm">
