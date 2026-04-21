@@ -5,6 +5,7 @@ import type {
   UserAnswer,
   MultipleChoiceContent,
 } from "@/types/exercise";
+import { Button } from "@/components/ui/Button";
 
 type Question = ReadingPassageWithQuestions["questions"][number];
 
@@ -29,13 +30,12 @@ export function MultipleChoice({ question, userAnswer, onAnswer }: Props) {
       {content.options.map((opt) => {
         const selected = userAnswer.answer === opt.id;
         return (
-          <button
+          <Button
             key={opt.id}
             onClick={() => handleSelect(opt.id)}
-            className={`flex w-full items-start gap-3 rounded-lg border px-4 py-3 text-left transition-colors ${
-              selected
-                ? "bg-brand-light border-brand"
-                : "border-gray-200 bg-white hover:border-gray-300"
+            variant={selected ? "secondary" : "outline"}
+            className={`w-full !justify-start !items-start h-auto px-4 py-3 gap-3 ${
+              selected ? "border border-brand" : ""
             }`}
           >
             <span
@@ -44,11 +44,11 @@ export function MultipleChoice({ question, userAnswer, onAnswer }: Props) {
               {opt.id}
             </span>
             <span
-              className={`text-sm leading-relaxed ${selected ? "text-brand" : "text-gray-700"}`}
+              className={`text-sm leading-relaxed text-left whitespace-normal font-normal ${selected ? "text-brand" : "text-gray-700"}`}
             >
               {opt.text}
             </span>
-          </button>
+          </Button>
         );
       })}
     </div>
