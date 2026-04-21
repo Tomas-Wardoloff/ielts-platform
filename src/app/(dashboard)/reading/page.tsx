@@ -38,7 +38,7 @@ export default async function ReadingPage() {
 
   const passageList = passages.map((passage) => {
     let lastAttempt: { score: number | null; completedAt: Date } | null = null;
-    
+
     // Find the latest attempt across all questions (exercises) in this passage
     for (const question of passage.questions) {
       if (question.attempts.length > 0) {
