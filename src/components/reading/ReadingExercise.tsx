@@ -26,14 +26,17 @@ export function ReadingExercise({ passage }: Props) {
   const isAnswered = (questionId: string) => {
     const q = passage.questions.find((q) => q.id === questionId);
     if (!q) return false;
-    
+
     const ans = answers[questionId];
     if (!ans) return false;
 
     const solution = q.solution as Record<string, unknown>;
 
     if ("answers" in solution && Array.isArray(solution.answers)) {
-      return Array.isArray(ans.answers) && ans.answers.length === solution.answers.length;
+      return (
+        Array.isArray(ans.answers) &&
+        ans.answers.length === solution.answers.length
+      );
     }
 
     if ("answer" in solution && typeof solution.answer === "string") {
@@ -42,7 +45,7 @@ export function ReadingExercise({ passage }: Props) {
 
     const expectedKeys = Object.keys(solution);
     if (expectedKeys.length === 0) return true;
-    
+
     return expectedKeys.every((key) => {
       const val = ans[key];
       if (Array.isArray(val)) return val.length > 0;
@@ -50,7 +53,9 @@ export function ReadingExercise({ passage }: Props) {
     });
   };
 
-  const answeredCount = passage.questions.filter((q) => isAnswered(q.id)).length;
+  const answeredCount = passage.questions.filter((q) =>
+    isAnswered(q.id)
+  ).length;
   const unansweredCount = totalQuestions - answeredCount;
 
   const handleAnswer = useCallback((questionId: string, answer: UserAnswer) => {

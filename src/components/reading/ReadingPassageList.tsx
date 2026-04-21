@@ -155,8 +155,8 @@ export function ReadingPassageList({
                     <td className="px-5 py-4 text-right whitespace-nowrap text-gray-400">
                       {passage.lastAttemptAt
                         ? formatDistanceToNow(new Date(passage.lastAttemptAt), {
-                          addSuffix: true,
-                        })
+                            addSuffix: true,
+                          })
                         : "—"}
                     </td>
                   </tr>
