@@ -5,6 +5,11 @@ import { WelcomeHeader } from "@/components/dashboard/WelcomeHeader";
 import { StatsOverview } from "@/components/dashboard/StatsOverview";
 import { PracticeModules } from "@/components/dashboard/PracticeModules";
 import { RecentAttemptsTable } from "@/components/dashboard/RecentAttemptsTable";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+};
 
 export default async function DashboardPage() {
   const user = await currentUser();

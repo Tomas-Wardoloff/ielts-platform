@@ -1,6 +1,11 @@
 import { db } from "@/lib/db";
 import { currentUser } from "@clerk/nextjs/server";
 import { ReadingPassageList } from "@/components/reading/ReadingPassageList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Readings Practice",
+};
 
 export default async function ReadingPage() {
   const user = await currentUser();
