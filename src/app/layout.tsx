@@ -4,8 +4,21 @@ import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "IELTS Master",
-  description: "Tu plataforma completa para preparar el IELTS",
+  title: {
+    default: "IELTS Master - Free IELTS Practice Platform",
+    template: "%s - IELTS Master",
+  },
+  description: "Practice all four IELTS modules online for free. AI-powered feedback to reach your target band score faster.",
+  keywords: [
+    "IELTS practice",
+    "IELTS preparation",
+    "IELTS reading",
+    "IELTS listening",
+    "IELTS writing",
+    "band score",
+    "free IELTS",
+    "IELTS",
+  ],
 };
 
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
