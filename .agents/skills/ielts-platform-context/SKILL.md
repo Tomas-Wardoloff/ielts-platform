@@ -7,17 +7,17 @@ description: Context and conventions for the IELTS Master full-stack platform (g
 
 ## Stack & Runtime
 
-| Layer | Technology |
-|---|---|
-| Runtime / Package manager | **Bun** (always `bun` / `bunx`, never `npm` / `npx`) |
-| Framework | **Next.js 16** — App Router only |
-| Language | **TypeScript** (strict) |
-| Styling | **Tailwind CSS v4** |
-| Auth | **Clerk** (public metadata for roles) |
-| ORM | **Prisma 7** (`prisma.config.ts`, `@prisma/adapter-pg`) |
-| Database | **PostgreSQL** via **Neon** (serverless) |
-| Deployment | **Vercel** (auto-deploy on merge to `main`) |
-| Linting | **ESLint + Prettier** |
+| Layer                     | Technology                                              |
+| ------------------------- | ------------------------------------------------------- |
+| Runtime / Package manager | **Bun** (always `bun` / `bunx`, never `npm` / `npx`)    |
+| Framework                 | **Next.js 16** — App Router only                        |
+| Language                  | **TypeScript** (strict)                                 |
+| Styling                   | **Tailwind CSS v4**                                     |
+| Auth                      | **Clerk** (public metadata for roles)                   |
+| ORM                       | **Prisma 7** (`prisma.config.ts`, `@prisma/adapter-pg`) |
+| Database                  | **PostgreSQL** via **Neon** (serverless)                |
+| Deployment                | **Vercel** (auto-deploy on merge to `main`)             |
+| Linting                   | **ESLint + Prettier**                                   |
 
 ## Repository Layout
 
@@ -83,6 +83,7 @@ ielts-platform/
 ## Reading Module (Phase 2 — in progress)
 
 ### 11 IELTS Question Types (all defined in `types/questions.ts`)
+
 1. Multiple Choice
 2. Identifying Information (True/False/Not Given)
 3. Identifying Writer's Views (Yes/No/Not Given)
@@ -96,11 +97,13 @@ ielts-platform/
 11. Short Answer Questions
 
 ### Grading
+
 - `gradeExercise(answers, exercise)` in `lib/grading.ts`
 - Returns score + per-question feedback
 - Results passed via `sessionStorage` to results page (not URL params)
 
 ### API
+
 - `POST /api/attempts` — saves attempt to DB (auth required)
 - Admin panel reads from DB-backed reading list
 
@@ -124,6 +127,7 @@ bunx prisma generate           # Regenerate client
 ## Do's and Don'ts
 
 **Do:**
+
 - Use `bun` / `bunx` exclusively
 - Follow kebab-case for folders and non-component files
 - Gate all admin routes both in middleware and server-side
@@ -131,6 +135,7 @@ bunx prisma generate           # Regenerate client
 - Keep `gradeExercise()` pure and testable
 
 **Don't:**
+
 - Use `npm`, `npx`, or `yarn`
 - Use `middleware.ts` — the file must be `proxy.ts`
 - Hardcode secrets — use `.env.local` / Vercel env vars

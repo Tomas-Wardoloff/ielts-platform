@@ -34,8 +34,9 @@ export function MultipleChoice({ question, userAnswer, onAnswer }: Props) {
             key={opt.id}
             onClick={() => handleSelect(opt.id)}
             variant={selected ? "secondary" : "outline"}
-            className={`h-auto w-full items-start! justify-start! gap-3 px-4 py-3 ${selected ? "border-brand border" : ""
-              }`}
+            className={`h-auto w-full items-start! justify-start! gap-3 px-4 py-3 ${
+              selected ? "border-brand border" : ""
+            }`}
           >
             <span
               className={`mt-0.5 min-w-[16px] text-xs font-bold ${selected ? "text-brand" : "text-gray-400"}`}

@@ -8,7 +8,8 @@ export const metadata: Metadata = {
     default: "IELTS Master - Free IELTS Practice Platform",
     template: "%s - IELTS Master",
   },
-  description: "Practice all four IELTS modules online for free. AI-powered feedback to reach your target band score faster.",
+  description:
+    "Practice all four IELTS modules online for free. AI-powered feedback to reach your target band score faster.",
   keywords: [
     "IELTS practice",
     "IELTS preparation",
