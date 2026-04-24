@@ -43,3 +43,8 @@ next-env.d.ts
 
 # IDE
 .vscode
+
+# agent skills (remote) — tracked via skills-lock.json, like node_modules
+# local skill (ielts-platform-context) is intentionally committed
+.agents/skills/next-best-practices
+.agents/skills/vercel-react-best-practices
